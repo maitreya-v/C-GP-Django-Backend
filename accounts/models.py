@@ -68,3 +68,11 @@ class Account(AbstractBaseUser, PermissionsMixin):
 
 
 # def setActive(self,)
+
+
+class Profile(models.Model):
+    email = models.OneToOneField(Account,on_delete=models.CASCADE)
+    address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=10)
+    photo = models.ImageField(upload_to='profile_pics/')
+    
